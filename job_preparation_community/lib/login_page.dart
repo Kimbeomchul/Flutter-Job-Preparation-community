@@ -5,7 +5,7 @@ import 'package:job_preparation_community/background/login_back.dart';
 import 'package:job_preparation_community/data/join_or_login.dart';
 import 'package:job_preparation_community/tab_page.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'forget_pw.dart';
 
 class LoginPage extends StatelessWidget {
@@ -41,24 +41,37 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
                 Container(height: size.height * 0.1),
-                Consumer<JoinOrLogin>(
-                  builder: (BuildContext context, JoinOrLogin JoinOrLogin,
-                          Widget child) =>
-                      GestureDetector(
-                          onTap: () {
-                            JoinOrLogin.toggle();
-                          },
-                          child: Text(
-                            JoinOrLogin.isJoin
-                                ? "Already Have an Account?"
-                                : "Don't Have an Account? Create One",
-                            style: TextStyle(
-                                color: JoinOrLogin.isJoin
-                                    ? Colors.purple
-                                    : Colors.indigo),
-                          )),
+                SignInButton(
+                  Buttons.Google,
+                  onPressed: () {
+                    _handleSignIn().then((user) {
+                      print(user);
+                    });
+                  },
+                ),
+
+                Padding(
+                  padding: EdgeInsets.only(top: 20),
+                  child: Consumer<JoinOrLogin>(
+                    builder: (BuildContext context, JoinOrLogin JoinOrLogin,
+                            Widget child) =>
+                        GestureDetector(
+                            onTap: () {
+                              JoinOrLogin.toggle();
+                            },
+                            child: Text(
+                              JoinOrLogin.isJoin
+                                  ? "Already Have an Account?"
+                                  : "Don't Have an Account? Create One",
+                              style: TextStyle(
+                                  color: JoinOrLogin.isJoin
+                                      ? Colors.purple
+                                      : Colors.indigo),
+                            )),
+                  ),
                 ),
                 Container(height: size.height * 0.05),
+
               ],
             ),
           ],
@@ -66,6 +79,17 @@ class LoginPage extends StatelessWidget {
       ),
     );
   }
+  Future <FirebaseUser> _handleSignIn() async {
+    GoogleSignInAccount googleUser  = await _googleSignIn.signIn();
+    GoogleSignInAuthentication googleAuth =  await googleUser.authentication;
+    FirebaseUser user = (await _auth.signInWithCredential(
+        GoogleAuthProvider.getCredential(idToken: googleAuth.idToken, accessToken: googleAuth.accessToken))).user;
+    print("Signed in" + user.displayName);
+
+    return user;
+
+  }
+
 
   void _register(BuildContext context) async {
     final AuthResult result = await FirebaseAuth.instance
@@ -197,19 +221,5 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-//            SignInButton(
-//              Buttons.Google, onPressed: (){
-//              _handleSignIn().then((user){
-//                print(user);
-//  Future <FirebaseUser> _handleSignIn() async {
-//    GoogleSignInAccount googleUser  = await _googleSignIn.signIn();
-//    GoogleSignInAuthentication googleAuth =  await googleUser.authentication;
-//    FirebaseUser user = (await _auth.signInWithCredential(
-//        GoogleAuthProvider.getCredential(idToken: googleAuth.idToken, accessToken: googleAuth.accessToken))).user;
-//    print("Signed in" + user.displayName);
-//
-//    return user;
-//
-//  }
-//
-//}
+
+

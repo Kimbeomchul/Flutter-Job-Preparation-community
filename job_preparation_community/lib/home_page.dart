@@ -8,8 +8,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('홈페이지'),
+    return MaterialApp(
+      home: Scaffold(
+        body: Stack(
+          alignment: Alignment.center,
+          
+        ),
+      ),
+
+
     );
   }
 }

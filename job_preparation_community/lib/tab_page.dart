@@ -51,12 +51,13 @@ class _TabPageState extends State<TabPage> {
         onTap: _onItemTapped,
           currentIndex: _selectedIndex,
           items: <BottomNavigationBarItem>[
+
         BottomNavigationBarItem(icon:Icon(Icons.home), title:Text('홈'),backgroundColor: Colors.black),
-        BottomNavigationBarItem(icon:Icon(Icons.border_color), title:Text('자소서')),
-        BottomNavigationBarItem(icon:Icon(Icons.insert_emoticon), title:Text('인적성')),
-        BottomNavigationBarItem(icon:Icon(Icons.face), title:Text('면접')),
-        BottomNavigationBarItem(icon:Icon(Icons.group_add), title:Text('인턴')),
-        BottomNavigationBarItem(icon:Icon(Icons.supervisor_account), title:Text('멘토')),
+        BottomNavigationBarItem(icon:Icon(Icons.border_color), title:Text('자소서'),backgroundColor: Colors.black),
+        BottomNavigationBarItem(icon:Icon(Icons.insert_emoticon), title:Text('인적성'),backgroundColor: Colors.black),
+        BottomNavigationBarItem(icon:Icon(Icons.face), title:Text('면접'),backgroundColor: Colors.black),
+        BottomNavigationBarItem(icon:Icon(Icons.group_add), title:Text('인턴'),backgroundColor: Colors.black),
+        BottomNavigationBarItem(icon:Icon(Icons.supervisor_account), title:Text('멘토'),backgroundColor: Colors.black),
       ]),
     );
   }
