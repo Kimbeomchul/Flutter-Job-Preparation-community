@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:job_preparation_community/tab_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:job_preparation_community/login_page.dart';
+import 'package:job_preparation_community/auth/login_page.dart';
 import 'package:provider/provider.dart';
 import 'data/join_or_login.dart';
 class RootPage extends StatelessWidget {

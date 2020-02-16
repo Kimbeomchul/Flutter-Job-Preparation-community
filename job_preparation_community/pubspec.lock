@@ -104,13 +104,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_kakao_login:
-    dependency: "direct dev"
-    description:
-      name: flutter_kakao_login
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.7.0"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
