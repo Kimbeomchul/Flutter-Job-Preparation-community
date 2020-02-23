@@ -9,6 +9,12 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
+Widget _Pop (BuildContext context , document){
+  return Text(
+      document['contents'],);
+}
+
+
 
 
 class _HomePageState extends State<HomePage> {
@@ -16,14 +22,7 @@ class _HomePageState extends State<HomePage> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static  List<Widget> _mainwidget = <Widget>[
-    Container(
-      color: Colors.grey,
-      child: Text(
-        'Index 0 ',
-        style: optionStyle,
 
-      ),
-    ),
     Container(
       color: Colors.blue,
       child: Text(

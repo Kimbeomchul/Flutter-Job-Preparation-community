@@ -44,8 +44,11 @@ Widget _buildListItem(BuildContext context, document) {
             backgroundImage: NetworkImage(document['user']),
           ),
               Positioned(child:Text(
-                document['displayName'], style: TextStyle(fontWeight: FontWeight.bold,)  ,
+                document['displayName'], style: TextStyle(fontWeight: FontWeight.bold, color: Colors.deepPurple)  ,
               ),left: 50, top:8,),
+
+            Positioned(child: Text(
+              document['contents'], style: TextStyle(fontWeight: FontWeight.bold,)),left: 50, top: 35,),
 
 
           Column(
@@ -58,17 +61,17 @@ Widget _buildListItem(BuildContext context, document) {
 
               Image.network(
                 document['photoUrl'],
-                width: 140,
+                width: 371, height: 350,
+                fit: BoxFit.fill,
+
               ),
                 ],
               ),
             ],
 
           ),
-          Padding(padding: EdgeInsets.only(left: 10),),
-          Text(
-                  document['contents'],
-                ),
+          Padding(padding: EdgeInsets.only(top: 50),),
+
 
            ],
 

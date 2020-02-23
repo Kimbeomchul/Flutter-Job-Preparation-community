@@ -34,7 +34,7 @@ class _TabPageState extends State<TabPage> {
     _pages =[
     HomePage(widget.user),
     JobPage(widget.user),
-    FreePage(),
+    FreePage(widget.user),
     Text("Text4"),
     AccountPage(widget.user),
     ];

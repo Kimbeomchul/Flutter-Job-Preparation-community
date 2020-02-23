@@ -1,9 +1,18 @@
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 class FreePage extends StatefulWidget {
+
+  final FirebaseUser user;
+
+  FreePage(this.user);
   @override
   _FreePageState createState() => _FreePageState();
 }
+Widget _FreeBody (BuildContext context, documnet){
+
+}
+
 
 class _FreePageState extends State<FreePage> {
   @override
@@ -12,7 +21,7 @@ class _FreePageState extends State<FreePage> {
         itemBuilder: (BuildContext context, int index) {
       return new Image.network(
         "https://mblogthumb-phinf.pstatic.net/20151017_146/hayandoud_1445057522227ckQvF_JPEG/20151017_124409.jpg?type=w2",
-        fit: BoxFit.fill,
+        height: 600,
       );
     },
     itemCount: 10,
