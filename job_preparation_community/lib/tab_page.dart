@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:job_preparation_community/bottombar/account_page.dart';
+import 'package:job_preparation_community/bottombar/free_page.dart';
 import 'package:job_preparation_community/bottombar/job_page.dart';
 import 'package:job_preparation_community/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -33,7 +34,7 @@ class _TabPageState extends State<TabPage> {
     _pages =[
     HomePage(widget.user),
     JobPage(widget.user),
-    Text("Text3"),
+    FreePage(),
     Text("Text4"),
     AccountPage(widget.user),
     ];
