@@ -4,7 +4,7 @@
 ## Demo
 
 
-## What We Used
+## Used
 - Flutter , Firebase Auth , Firebase Storage
 
 ## Sample Screens
